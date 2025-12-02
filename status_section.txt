@@ -1,0 +1,19 @@
+﻿###  Implemented
+- Player name extraction
+- Character name extraction  
+- Tribe name extraction
+- Tribe member lists
+- Player stats (level, experience, tribe membership)
+- Multi-server scanning
+- **Inventory parsing** (item names, quantities, quality, durability)
+- **Level calculation from experience** (bundled XP table, auto-mapping)
+- **Async support** (non-blocking I/O with AsyncArkSaveReader)
+- **Performance tools** (profiling, memory-mapped files, benchmarking)
+- **Cluster transfers** (ClusterObjects parsing, upload tracking)
+
+###  In Development
+- Full player stats (health, stamina, weight, etc.) - Float/Double parsing groundwork started
+- Deep dino data extraction (requires UE5 actor serialization protocol)
+- Structure data extraction (requires UE5 actor serialization protocol)
+- Real-time save file watching
+- Historical data tracking

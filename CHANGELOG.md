@@ -140,3 +140,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Clarified 'In Development' items (deep UE5 parsing, real-time watching, historical tracking)
 - Documentation accuracy improvements
 
+### Version 0.1.9 (2025-12-02)
+- Added full player stats extraction (\PlayerStatsReader\)
+- Parse health, stamina, weight, oxygen, food, water, melee, speed, fortitude
+- Support for FloatProperty and DoubleProperty parsing
+- Extract CurrentStatusValues array for current stat values
+- \get_stat_summary()\ for formatted stat display
+- Created \examples/player_stats_usage.py\ with Discord bot patterns
+- Moved player stats from 'In Development' to 'Implemented'
+
