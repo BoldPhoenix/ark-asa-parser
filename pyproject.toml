@@ -1,9 +1,9 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=61.0,<69.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ark-asa-parser"
+name = "ark_asa_parser"
 version = "0.1.1"
 authors = [
     { name = "BoldPhoenix", email = "your.email@example.com" }
@@ -11,12 +11,12 @@ authors = [
 description = "Extract player, tribe, and server data from ARK: Survival Ascended save files"
 readme = "README.md"
 requires-python = ">=3.8"
+
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Topic :: Games/Entertainment",
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -35,3 +35,7 @@ Repository = "https://github.com/BoldPhoenix/ark-asa-parser"
 where = ["."]
 include = ["ark_asa_parser*"]
 exclude = ["tests*", "examples*"]
+
+
+
+
