@@ -76,7 +76,10 @@ def read_inventory_from_profile(profile_path: Path) -> List[ItemData]:
     """
     data = Path(profile_path).read_bytes()
 
-    names = _find_all_string_values(data, "ItemName")
+    # Prefer CustomItemName when present, fallback to ItemName
+    custom_names = _find_all_string_values(data, "CustomItemName")
+    base_names = _find_all_string_values(data, "ItemName")
+    names = custom_names if custom_names else base_names
     quantities = _find_all_int_values(data, "ItemQuantity")
 
     count = min(len(names), len(quantities))

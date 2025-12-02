@@ -13,6 +13,7 @@ from .binary_reader import BinaryReader, PropertyReader
 from .simple_property_reader import extract_player_data_simple, extract_tribe_data_simple
 from .levels import xp_to_level
 from .inventory_reader import read_inventory_from_profile
+from .dino_structure import try_get_tribe_dino_count
 
 
 @dataclass
@@ -47,7 +48,7 @@ class ArkSaveReader:
     Reads ARK ASA save files (SQLite format)
     """
     
-    def __init__(self, save_dir: Path):
+    def __init__(self, save_dir: Path, xp_table: Optional[List[float]] = None):
         """
         Initialize reader with path to save directory
         
@@ -56,6 +57,8 @@ class ArkSaveReader:
         """
         self.save_dir = Path(save_dir)
         self.world_save = self.save_dir / f"{self.save_dir.name}.ark"
+        # Optional XP threshold table used to compute level from experience when explicit level is missing
+        self.xp_table = xp_table
         
     def is_valid(self) -> bool:
         """Check if save directory exists and contains valid save files"""
@@ -162,6 +165,11 @@ class ArkSaveReader:
                     player.tribe_id = player_data.get('tribe_id')
                     player.level = player_data.get('level', 1)
                     player.experience = player_data.get('experience', 0.0)
+                    # If no level provided but we have experience and an XP table, compute a level
+                    if (not player.level or player.level <= 1) and self.xp_table and player.experience:
+                        computed = xp_to_level(player.experience, xp_table=self.xp_table)
+                        if isinstance(computed, int):
+                            player.level = computed
             except Exception as parse_error:
                 # Parsing failed - keep basic metadata
                 pass
@@ -228,6 +236,13 @@ class ArkSaveReader:
         for tribe_path in self.list_tribe_files():
             tribe = self.read_tribe_file(tribe_path)
             if tribe:
+                # Best-effort populate dino_count from file
+                try:
+                    count = try_get_tribe_dino_count(tribe_path)
+                    if isinstance(count, int):
+                        tribe.dino_count = count
+                except Exception:
+                    pass
                 tribes.append(tribe)
         return tribes
 

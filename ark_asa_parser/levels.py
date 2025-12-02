@@ -18,6 +18,8 @@ Usage:
 
 from bisect import bisect_right
 from typing import List, Optional
+import json
+from pathlib import Path
 
 
 def xp_to_level(xp: float, xp_table: Optional[List[float]] = None, one_indexed: bool = True) -> Optional[int]:
@@ -51,3 +53,17 @@ def xp_to_level(xp: float, xp_table: Optional[List[float]] = None, one_indexed: 
         level = max(1, min(idx + 1, len(table)))
 
     return level
+
+
+def load_xp_table(json_path: str | Path) -> List[float]:
+    """
+    Load an XP threshold table from a JSON file.
+
+    The JSON should contain an array of numbers where each element is the
+    minimum XP required for the corresponding level (typically one-indexed).
+    """
+    p = Path(json_path)
+    data = json.loads(p.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError("XP table JSON must be a list of numbers")
+    return [float(x) for x in data]

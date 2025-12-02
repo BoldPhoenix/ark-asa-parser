@@ -75,3 +75,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Populate player experience from profile files (ExperiencePoints/Experience/XP)
 - Attempt to read player level from CharacterLevel/PlayerLevel when present
 - Prep for future stats/inventory with improved primitives
+
+## 0.1.3 - 2025-12-02
+- Add XP table JSON loader; ArkSaveReader accepts xp_table and computes level from experience when needed
+- Inventory prototype prefers CustomItemName; expose read_player_inventory
+- Add dino/structure stubs and best-effort tribe dino count
+- Docs updates

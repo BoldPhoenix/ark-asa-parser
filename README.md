@@ -225,3 +225,10 @@ Special thanks to the ARK modding community for reverse-engineering documentatio
 
 
 
+
+## New in 0.1.2/0.1.3
+- Experience parsing via Float/Double properties; optional level from explicit fields
+- Optional XP table support to compute level from XP
+- Inventory parsing prototype (names + quantities; prefers CustomItemName)
+- Best-effort tribe dino count field when present
+
