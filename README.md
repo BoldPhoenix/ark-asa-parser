@@ -22,6 +22,19 @@ A Python library for extracting player, tribe, and server data from ARK: Surviva
 - Save file metadata
 - Multi-server cluster support
 
+## What's New
+
+### Version 0.1.4
+-  **Bundled Default XP Table** - No external JSON required! Library now includes official ASA XP thresholds
+-  **Enhanced Inventory Parser** - Full struct array parsing for item quality, durability, custom names (when inventory present)
+-  **Simplified API** - xp_to_level() now works out-of-the-box without providing XP table
+
+### Version 0.1.2 & 0.1.3
+- Optional XP table support to compute level from XP
+- Inventory parsing prototype (names + quantities; prefers CustomItemName)
+- Tribe dino counts (best-effort from common properties)
+
+
 ## Installation
 
 ```bash
@@ -231,4 +244,5 @@ Special thanks to the ARK modding community for reverse-engineering documentatio
 - Optional XP table support to compute level from XP
 - Inventory parsing prototype (names + quantities; prefers CustomItemName)
 - Best-effort tribe dino count field when present
+
 

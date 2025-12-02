@@ -1,8 +1,24 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
-
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.1.4] - 2025-12-02
+
+### Added
+- Bundled default ASA XP table in xp_data.py module - no external JSON required
+- Enhanced inventory parser (inventory_reader_v2.py) with full StructProperty array parsing
+- Support for item quality, durability, custom names, blueprints, engrams
+- Export get_default_xp_table() for users who want the bundled table
+
+### Changed
+- xp_to_level() now uses bundled default XP table when xp_table=None
+- Inventory parsing improved with struct-based approach (fallback to heuristic)
+
+### Fixed
+- Level calculation no longer requires external JSON configuration
+
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.1.1] - 2025-12-01
@@ -81,3 +97,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Inventory prototype prefers CustomItemName; expose read_player_inventory
 - Add dino/structure stubs and best-effort tribe dino count
 - Docs updates
+
