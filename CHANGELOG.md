@@ -134,3 +134,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Created \examples/cluster_transfers.py\ with usage examples
 - Discord bot integration example for cluster status commands
 
+### Version 0.1.8 (2025-12-02)
+- Updated README feature status to reflect completed items
+- Moved inventory parsing, level calculation, async support, performance tools, and cluster transfers to 'Implemented' section
+- Clarified 'In Development' items (deep UE5 parsing, real-time watching, historical tracking)
+- Documentation accuracy improvements
+
