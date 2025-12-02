@@ -3,11 +3,12 @@ ARK: Survival Ascended Save Parser
 Extract player, tribe, and server data from ARK ASA save files.
 """
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 
 from .save_reader import ArkSaveReader, scan_all_servers, PlayerData, TribeData
 from .levels import xp_to_level, load_xp_table
 from .xp_data import get_default_xp_table
+from .cluster_reader import scan_cluster_folder, get_cluster_summary, ClusterTransfer
 
 # Async support (optional - requires aiofiles)
 try:
@@ -28,5 +29,11 @@ __all__ = [
     'get_default_xp_table',
     'AsyncArkSaveReader',
     'async_scan_all_servers',
+    'scan_cluster_folder',
+    'get_cluster_summary',
+    'ClusterTransfer',
 ]
+
+
+
 

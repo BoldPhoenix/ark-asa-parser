@@ -24,6 +24,12 @@ A Python library for extracting player, tribe, and server data from ARK: Surviva
 
 ## What's New
 
+### Version 0.1.7
+- **Cluster Transfers** - Parse ClusterObjects folder for uploaded items/dinos/characters
+- **Transfer Tracking** - `scan_cluster_folder()` categorizes transfers by type
+- **Cluster Statistics** - `get_cluster_summary()` for storage metrics
+- **Discord Ready** - Example commands for cluster status embeds
+
 ### Version 0.1.6
 - **Performance Tools** - Profiling, benchmarking, and optimization utilities
 - **Memory-Mapped Files** - `OptimizedReader` for large files (>50MB)
@@ -287,4 +293,5 @@ if rec["use_mmap"]:
 ```
 
 See `examples/performance_testing.py` for complete benchmarking examples.
+
 

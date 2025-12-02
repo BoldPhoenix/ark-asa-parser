@@ -126,3 +126,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optimization recommendations: \get_optimization_recommendations()\ for file-specific advice
 - Created \examples/performance_testing.py\ with profiling and benchmarking examples
 
+### Version 0.1.7 (2025-12-02)
+- Added cluster transfer support (\rk_asa_parser.cluster_reader\)
+- New functions: \scan_cluster_folder()\, \get_cluster_summary()\, \get_player_cluster_data()\
+- ClusterTransfer dataclass for transferred characters, items, and dinos
+- Parse ClusterObjects folder to track uploads between servers
+- Created \examples/cluster_transfers.py\ with usage examples
+- Discord bot integration example for cluster status commands
+

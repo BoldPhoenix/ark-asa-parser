@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ark_asa_parser"
-version = "0.1.6"
+version = "0.1.7"
 authors = [
     { name = "BoldPhoenix", email = "your.email@example.com" }
 ]
@@ -38,4 +38,5 @@ Repository = "https://github.com/BoldPhoenix/ark-asa-parser"
 where = ["."]
 include = ["ark_asa_parser*"]
 exclude = ["tests*", "examples*"]
+
 
