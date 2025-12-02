@@ -259,3 +259,32 @@ Special thanks to the ARK modding community for reverse-engineering documentatio
 
 
 
+## Performance Optimization
+
+The library includes performance tools for profiling, benchmarking, and optimizing large file processing:
+
+```python
+from ark_asa_parser.performance import (
+    profile_function,
+    OptimizedReader,
+    get_optimization_recommendations
+)
+
+# Profile to find bottlenecks
+reader = ArkSaveReader(save_path)
+players, stats = profile_function(reader.get_all_players)
+stats.sort_stats("cumulative").print_stats(10)
+
+# Use memory-mapped files for large saves (>50MB)
+with OptimizedReader(profile_path) as reader:
+    positions = reader.find_all(b"PlayerName")
+    chunk = reader.read_chunk(positions[0], 100)
+
+# Get optimization recommendations
+rec = get_optimization_recommendations(profile_path)
+if rec["use_mmap"]:
+    print(f"File is {rec["file_size_mb"]:.1f}MB - consider mmap")
+```
+
+See `examples/performance_testing.py` for complete benchmarking examples.
+
