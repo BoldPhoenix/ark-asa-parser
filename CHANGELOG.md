@@ -118,3 +118,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Docs updates
 
 
+### Version 0.1.6 (2025-12-02)
+- Added performance utilities module (\rk_asa_parser.performance\)
+- Profiling tools: \profile_function()\ for identifying bottlenecks
+- Memory-mapped file access: \mmap_file()\ and \OptimizedReader\ for large files (>50MB)
+- Benchmark utilities: \enchmark_file_read()\ for comparing read methods
+- Optimization recommendations: \get_optimization_recommendations()\ for file-specific advice
+- Created \examples/performance_testing.py\ with profiling and benchmarking examples
+

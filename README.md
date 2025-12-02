@@ -1,28 +1,34 @@
-# ARK: Survival Ascended Save Parser
+﻿# ARK: Survival Ascended Save Parser
 
 A Python library for extracting player, tribe, and server data from ARK: Survival Ascended save files.
 
 ## Features
 
-✅ **Player Data Extraction**
+âœ… **Player Data Extraction**
 - Player names (Epic Games account names)
 - Character names (in-game names)
 - Tribe membership
 - Player levels and stats
 
-✅ **Tribe Data Extraction**
+âœ… **Tribe Data Extraction**
 - Tribe names
 - Tribe owner information
 - Member lists with names and IDs
 - Tribe logs
 
-✅ **Server Analytics**
+âœ… **Server Analytics**
 - Player counts across servers
 - Tribe statistics
 - Save file metadata
 - Multi-server cluster support
 
 ## What's New
+
+### Version 0.1.6
+- **Performance Tools** - Profiling, benchmarking, and optimization utilities
+- **Memory-Mapped Files** - `OptimizedReader` for large files (>50MB)
+- **Profiling Support** - Identify bottlenecks with `profile_function()`
+- **Optimization Hints** - Get file-specific recommendations
 
 ### Version 0.1.5
 -  **Async Support** - New AsyncArkSaveReader for non-blocking file I/O
@@ -95,10 +101,10 @@ ARK ASA saves use the following structure:
 
 ```
 SavedArks/
-├── MapName_WP/                    # Save directory
-│   ├── MapName_WP.ark            # World save (SQLite database)
-│   ├── <eos_id>.arkprofile       # Player profile files
-│   └── <tribe_id>.arktribe       # Tribe data files
+â”œâ”€â”€ MapName_WP/                    # Save directory
+â”‚   â”œâ”€â”€ MapName_WP.ark            # World save (SQLite database)
+â”‚   â”œâ”€â”€ <eos_id>.arkprofile       # Player profile files
+â”‚   â””â”€â”€ <tribe_id>.arktribe       # Tribe data files
 ```
 
 ## Data Classes
@@ -175,7 +181,7 @@ The parser handles:
 
 ## Development Status
 
-### ✅ Implemented
+### âœ… Implemented
 - Player name extraction
 - Character name extraction
 - Tribe name extraction
@@ -183,7 +189,7 @@ The parser handles:
 - Basic player stats (level via field when available, tribe membership, experience parsing)
 - Multi-server scanning
 
-### 🚧 In Development
+### ðŸš§ In Development
 - Full player stats (health, stamina, weight, etc.)  groundwork started (Float/Double parsing)
 - Dino data extraction
 - Structure data extraction
@@ -249,6 +255,7 @@ Special thanks to the ARK modding community for reverse-engineering documentatio
 - Optional XP table support to compute level from XP
 - Inventory parsing prototype (names + quantities; prefers CustomItemName)
 - Best-effort tribe dino count field when present
+
 
 
 
