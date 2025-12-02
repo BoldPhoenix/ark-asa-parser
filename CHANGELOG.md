@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2025-12-02
+
+### Added
+- AsyncArkSaveReader class for non-blocking async file I/O
+- sync_get_all_players() and sync_get_all_tribes() methods
+- sync_read_profile_file() and sync_read_tribe_file() for individual files
+- sync_scan_all_servers() for cluster-wide async scanning
+- sync_read_player_inventory() for async inventory reading
+- Optional iofiles dependency (install with [async] extra)
+- Concurrent file processing with asyncio.gather()
+- Example script examples/async_usage.py with Discord bot patterns
+
+### Changed
+- Async methods process files concurrently for better performance
+- CPU-bound parsing runs in executor to avoid blocking event loop
+
+### Fixed
+- Large save file reads no longer block async applications
+
 ## [0.1.4] - 2025-12-02
 
 ### Added
@@ -97,4 +116,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Inventory prototype prefers CustomItemName; expose read_player_inventory
 - Add dino/structure stubs and best-effort tribe dino count
 - Docs updates
+
 

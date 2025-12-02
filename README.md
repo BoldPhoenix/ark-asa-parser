@@ -24,6 +24,11 @@ A Python library for extracting player, tribe, and server data from ARK: Surviva
 
 ## What's New
 
+### Version 0.1.5
+-  **Async Support** - New AsyncArkSaveReader for non-blocking file I/O
+-  **Discord Bot Friendly** - Perfect for Discord.py with sync_get_all_players(), sync_get_all_tribes()
+-  **Concurrent Processing** - Process multiple files simultaneously with asyncio.gather()
+-  **Optional Dependency** - Install with pip install ark-asa-parser[async] for aiofiles support
 ### Version 0.1.4
 -  **Bundled Default XP Table** - No external JSON required! Library now includes official ASA XP thresholds
 -  **Enhanced Inventory Parser** - Full struct array parsing for item quality, durability, custom names (when inventory present)
@@ -244,5 +249,6 @@ Special thanks to the ARK modding community for reverse-engineering documentatio
 - Optional XP table support to compute level from XP
 - Inventory parsing prototype (names + quantities; prefers CustomItemName)
 - Best-effort tribe dino count field when present
+
 
 

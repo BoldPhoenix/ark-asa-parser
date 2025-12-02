@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ark_asa_parser"
-version = "0.1.4"
+version = "0.1.5"
 authors = [
     { name = "BoldPhoenix", email = "your.email@example.com" }
 ]
@@ -24,7 +24,10 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-keywords = ["ark", "ark survival ascended", "asa", "save parser", "game data"]
+keywords = ["ark", "ark survival ascended", "asa", "save parser", "game data", "async"]
+
+[project.optional-dependencies]
+async = ["aiofiles>=23.2.0"]
 
 [project.urls]
 Homepage = "https://github.com/BoldPhoenix/ark-asa-parser"
@@ -35,8 +38,3 @@ Repository = "https://github.com/BoldPhoenix/ark-asa-parser"
 where = ["."]
 include = ["ark_asa_parser*"]
 exclude = ["tests*", "examples*"]
-
-
-
-
-
