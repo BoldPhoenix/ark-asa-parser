@@ -99,6 +99,31 @@ def find_int_property(data: bytes, prop_name: str) -> Optional[int]:
         
         pos += 1
 
+def find_float_property(data: bytes, prop_name: str) -> Optional[float]:
+    """Find a float/double property value"""
+    search_bytes = prop_name.encode('ascii')
+    pos = 0
+
+    while True:
+        pos = data.find(search_bytes, pos)
+        if pos == -1:
+            return None
+
+        if pos >= 4:
+            length = struct.unpack('<i', data[pos-4:pos])[0]
+            if length == len(prop_name) + 1:
+                # Read property type
+                type_start = pos + len(search_bytes) + 1
+                prop_type, type_bytes = read_ue_string_at(data, type_start)
+                if prop_type in ["FloatProperty", "DoubleProperty"]:
+                    # Skip 8 bytes (int64 size) + 1 byte (null/padding)
+                    value_pos = type_start + type_bytes + 8 + 1
+                    if prop_type == "FloatProperty" and value_pos + 4 <= len(data):
+                        return struct.unpack('<f', data[value_pos:value_pos+4])[0]
+                    if prop_type == "DoubleProperty" and value_pos + 8 <= len(data):
+                        return struct.unpack('<d', data[value_pos:value_pos+8])[0]
+        pos += 1
+
 def find_array_property(data: bytes, prop_name: str) -> Optional[list]:
     """Find an array property value"""
     search_bytes = prop_name.encode('ascii')
@@ -153,18 +178,33 @@ def extract_player_data_simple(file_path, eos_id: str) -> dict:
     try:
         with open(file_path, 'rb') as f:
             data = f.read()
-        
+
         # Try both PlayerName and PlayerCharacterName
         player_name = find_string_property(data, "PlayerName") or ''
         character_name = find_string_property(data, "PlayerCharacterName") or ''
-        
+
+        # Experience (varies by serialization)
+        experience = (
+            find_float_property(data, "ExperiencePoints")
+            or find_float_property(data, "Experience")
+            or find_float_property(data, "XP")
+            or 0.0
+        )
+
+        # Level (if serialized explicitly)
+        level = (
+            find_int_property(data, "CharacterLevel")
+            or find_int_property(data, "PlayerLevel")
+            or 1
+        )
+
         return {
             'eos_id': eos_id,
             'player_name': player_name,
             'character_name': character_name,
             'tribe_id': find_int_property(data, "TribeID"),
-            'level': 1,  # Would need to calculate from experience
-            'experience': 0.0,  # Would need float property reader
+            'level': int(level) if isinstance(level, int) else 1,
+            'experience': float(experience) if isinstance(experience, (int, float)) else 0.0,
         }
     except Exception as e:
         return {'eos_id': eos_id, 'player_name': '', 'error': str(e)}

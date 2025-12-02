@@ -166,11 +166,11 @@ The parser handles:
 - Multi-server scanning
 
 ### 🚧 In Development
-- Full player stats (health, stamina, weight, etc.)
+- Full player stats (health, stamina, weight, etc.)  groundwork started (Float/Double parsing)
 - Dino data extraction
 - Structure data extraction
 - Inventory parsing
-- Level calculation from experience
+- Level calculation from experience (experience now parsed; mapping next)
 
 ## Contributing
 
@@ -221,3 +221,5 @@ Special thanks to the ARK modding community for reverse-engineering documentatio
 - Basic save file reading
 - SQLite database parsing
 - Player and tribe file detection
+
+

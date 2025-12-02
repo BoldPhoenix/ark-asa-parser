@@ -69,3 +69,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Web API server mode
 - Real-time save file monitoring
 - Backup metadata extraction
+
+## 0.1.2 - 2025-12-02
+- Add Float/Double property parsing in simple reader
+- Populate player experience from profile files (ExperiencePoints/Experience/XP)
+- Attempt to read player level from CharacterLevel/PlayerLevel when present
+- Prep for future stats/inventory with improved primitives
