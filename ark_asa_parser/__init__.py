@@ -3,7 +3,7 @@ ARK: Survival Ascended Save Parser
 Extract player, tribe, and server data from ARK ASA save files.
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 from .save_reader import ArkSaveReader, scan_all_servers, PlayerData, TribeData
 

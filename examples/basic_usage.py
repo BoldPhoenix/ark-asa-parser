@@ -39,6 +39,7 @@ def main():
         print(f"  EOS ID: {player.eos_id}")
         print(f"  Tribe ID: {player.tribe_id}")
         print(f"  Level: {player.level}")
+        print(f"  Experience: {player.experience}")
         print()
     
     # Get all tribes
