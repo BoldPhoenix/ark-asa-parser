@@ -162,14 +162,14 @@ The parser handles:
 - Character name extraction
 - Tribe name extraction
 - Tribe member lists
-- Basic player stats (level, tribe membership)
+- Basic player stats (level via field when available, tribe membership, experience parsing)
 - Multi-server scanning
 
 ### 🚧 In Development
 - Full player stats (health, stamina, weight, etc.)  groundwork started (Float/Double parsing)
 - Dino data extraction
 - Structure data extraction
-- Inventory parsing
+- Inventory parsing (prototype: item names + quantities)
 - Level calculation from experience (experience now parsed; mapping next)
 
 ## Contributing
@@ -221,5 +221,7 @@ Special thanks to the ARK modding community for reverse-engineering documentatio
 - Basic save file reading
 - SQLite database parsing
 - Player and tribe file detection
+
+
 
 

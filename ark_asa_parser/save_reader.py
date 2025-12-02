@@ -11,6 +11,8 @@ from datetime import datetime
 
 from .binary_reader import BinaryReader, PropertyReader
 from .simple_property_reader import extract_player_data_simple, extract_tribe_data_simple
+from .levels import xp_to_level
+from .inventory_reader import read_inventory_from_profile
 
 
 @dataclass
@@ -197,7 +199,10 @@ class ArkSaveReader:
                     tribe.owner_name = f"ID:{tribe_data.get('owner_id', 0)}"
                     members = tribe_data.get('members', [])
                     tribe.member_count = len(members)
-                    # Could extract dino count from TamedDinoCount property if needed
+                    # Set dino count if present
+                    dino_count = tribe_data.get('tamed_dino_count') or tribe_data.get('TamedDinoCount')
+                    if isinstance(dino_count, int):
+                        tribe.dino_count = dino_count
             except Exception as parse_error:
                 # Parsing failed - keep basic metadata
                 pass
@@ -225,6 +230,14 @@ class ArkSaveReader:
             if tribe:
                 tribes.append(tribe)
         return tribes
+
+    def read_player_inventory(self, profile_path: Path) -> List[dict]:
+        """Return a minimal inventory list from a player profile (prototype)."""
+        try:
+            items = read_inventory_from_profile(profile_path)
+            return [{'item_name': it.item_name, 'quantity': it.quantity} for it in items]
+        except Exception:
+            return []
 
 
 def scan_all_servers(cluster_root: Path) -> Dict[str, ArkSaveReader]:
