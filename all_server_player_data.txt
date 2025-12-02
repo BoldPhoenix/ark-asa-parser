@@ -1,0 +1,7 @@
+# Complete player data from all servers
+# Total: 80 players
+
+# Level -> Median XP
+level_median_xp = {
+    1: 975648.9375,
+}

@@ -1,0 +1,11 @@
+# Players from Extinction screenshots
+# Format: (level, xp, name, location)
+
+extinction_data = [
+    (1, 17.44122886657715, 'Donatello', 'X_Backup'),
+    (88, 459138.4375, 'Human', 'X_Backup'),
+    (105, 4098538.0, 'Buzz', 'X_Backup'),
+    (105, 3753226.0, 'NikitaLina', 'X_Backup'),
+    (105, 2932809.75, 'Connor McGregor', 'X_Backup'),
+    (134, 43642076.0, 'Sunniva', 'X_Backup'),
+]

@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.4] - 2025-12-02
+
+### Fixed
+- Player level reading now uses actual stored ExtraCharacterLevel value instead of calculating from XP
+- Resolves incorrect level calculations when XP multipliers are used on servers
+- Added find_uint16_property() function to read UInt16 properties from save files
+
 ## [0.1.5] - 2025-12-02
 
 ### Added

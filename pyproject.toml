@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ark_asa_parser"
-version = "0.1.9"
+version = "0.2.4"
 authors = [
     { name = "BoldPhoenix", email = "your.email@example.com" }
 ]

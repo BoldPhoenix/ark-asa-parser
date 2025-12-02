@@ -1,0 +1,23 @@
+# All player data points
+data_points = [
+    (1, 11, 'Beyonx'),
+    (1, 41, 'oTomadorDeTerere'),
+    (9, 877, 'Rhyno'),
+    (15, 1141, 'Tester'),
+    (25, 3117, 'LionsLord'),
+    (38, 7129, 'Mëlkor'),
+    (64, 28090, 'Aatxe'),
+    (71, 55484, 'Dc kid'),
+    (78, 146580, 'Raven Yuri'),
+    (82, 259670, 'Reina'),
+    (88, 497640, 'Poli'),
+    (90, 612400, 'Cassian'),
+    (95, 975649, 'Sex4TRex'),
+    (97, 1259268, 'Jake'),
+    (105, 4098538, 'Bundy'),
+    (105, 4098538, 'May'),
+    (114, 6179425, 'Joker'),
+    (117, 7541021, 'Panther'),
+    (131, 20947286, 'Jaxxx'),
+    (132, 28614060, 'BoldPhoenix'),
+]

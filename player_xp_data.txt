@@ -1,0 +1,6 @@
+# Player XP Data Points
+# Format: level, xp, player_name
+
+data_points = [
+    (132, 28615150, 'BoldPhoenix'),
+]
